@@ -23,37 +23,43 @@ var showAnswer = document.getElementById('showAnswer')
 var questions = [
   {
     question: 'An equality operator is a logic test operator you can use in Javascript, which one of the below is a "strict" operator?',
-    ana: '====',
-    b: '&&',
-    c: '=',
-    d: '===',
-    answer: 'd'
+    choices: {
+      a: '====',
+      b: '&&',
+      c: '=',
+      d: '===',
+    },
+    correctAnswer: 'd'
   },
   {
     question: 'What is a best practice you can do to make your code more accesible?',
-    ana: '',
-    b: '&&',
-    c: 'make ',
-    d: 'Comment out your code',
-    answer: 'd'
+    choices: {
+      a: 'Indent as little as you can',
+      b: 'Do not use brackets in your code',
+      c: 'Capitalize all of your variables',
+      d: 'Comment out your code'
+    },
+    correctAnswer: 'd'
   },
   {
-    question: 'An equality operator is a logic test operator you can use in Javascript, which one of the below is a "strict" operator?',
-    ana: '====',
-    b: '&&',
-    c: '=',
-    d: '===',
-    answer: 'd'
+    question: 'What operator do you have to add at the end of Javascript statements?',
+    choices: {
+      a: ':',
+      b: '.',
+      c: ';',
+      d: '=',
+    },
+    correctAnswer: 'c'
   },
   {
-    question: 'An equality operator is a logic test operator you can use in Javascript, which one of the below is a "strict" operator?',
-    ana: '====',
-    b: '&&',
-    c: '=',
-    d: '===',
-    answer: 'd'
-  },
-  
-
-]
+    question: 'What is an object?',
+    choices: {
+      a: 'A type of website',
+      b: 'A datatype that can store complex data',
+      c: 'A type of operator',
+      d: 'A method within Javascript',
+    },
+    correctAnswer: 'b'
+  }
+];
 
