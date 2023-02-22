@@ -16,9 +16,9 @@
 //--This data for scores will be stored in local memory
 //--You must also be able to clear the scoreboard
 
-var quizArea = document.getElementById('#container')
-var submitBtn = document.getElementById('#submitBtn')
-var showAnswer = document.getElementById('showAnswer')
+var quizArea = document.getElementById('quiz');
+var submitBtn = document.getElementById('#submitBtn');
+var showAnswer = document.getElementById('showAnswer');
 
 var questions = [
   {
@@ -63,3 +63,49 @@ var questions = [
   }
 ];
 
+console.log(questions);
+console.log(questions[0]);
+console.log(questions[0].choices['a']);
+
+
+
+function showQuestion(){
+  //Pull and print question piece by piece
+  //Show Answers
+  //We can access the questions array using dot notation
+  var show = [];
+  var answer = [];
+  //stores check against answer that is picked
+  var questionCount = 4;
+  
+  questions.forEach((element,choices) =>
+    //console.log(element.choices)
+    answer.push(choices)
+  );
+  console.log(answer)
+  
+  for (i=0 ; i<questionCount; i++) {
+      show.push(questions[i].choices);
+      console.log(show);
+      //answer.push('<label><input type='radio'name='question+i''questions[i].choices[i]'</label>');
+      //if the submit button hasnt been clicked, end for loop
+      if (!showAnswer){
+        return;
+      }
+
+  };
+  console.log(show);
+  quizArea.innerText = answer;
+  
+
+}
+
+function showAnswer(event) {
+  if(correctAnswer.check){
+    alert("Correct")
+  }
+}
+
+//Call the function that shows the question
+showQuestion();
+submitBtn.addEventListener('click', showAnswer);
