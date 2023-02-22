@@ -19,6 +19,8 @@
 var quizArea = document.getElementById('quiz');
 var submitBtn = document.getElementById('#submitBtn');
 var showAnswer = document.getElementById('showAnswer');
+var startQuizBtn = document.querySelector('startQuiz');
+var isStartQuizBtn = 'hidden';
 
 var questions = [
   {
@@ -73,20 +75,25 @@ function showQuestion(){
   //Pull and print question piece by piece
   //Show Answers
   //We can access the questions array using dot notation
-  var show = [];
+  var showChoices = [];
   var answer = [];
+
   //stores check against answer that is picked
   var questionCount = 4;
-  
+  //This is a 'for each' getter statement 
   questions.forEach((element,choices) =>
     //console.log(element.choices)
-    answer.push(choices)
+    showChoices.push(choices[''])
   );
-  console.log(answer)
+  console.log(showChoices)
+
+  console.log(document.body.children);
+  //Show submit answer button
+  startQuizBtn.style.visibility = 'visible';
   
   for (i=0 ; i<questionCount; i++) {
-      show.push(questions[i].choices);
-      console.log(show);
+    showChoices.push(questions[i].choices);
+      console.log(showChoices);
       //answer.push('<label><input type='radio'name='question+i''questions[i].choices[i]'</label>');
       //if the submit button hasnt been clicked, end for loop
       if (!showAnswer){
@@ -106,6 +113,8 @@ function showAnswer(event) {
   }
 }
 
-//Call the function that shows the question
-showQuestion();
-submitBtn.addEventListener('click', showAnswer);
+
+//When user clicks submit answer button, the function will verify the choice
+//submitBtn.addEventListener('click', showAnswer);
+//When user clicks start quiz, 'submit answer' button is unhidden, timer starts and question is built 
+startQuiz.addEventListener('click', showQuestion);
