@@ -1,5 +1,3 @@
-
-
 //When starting the quiz, it must be started when the 'Start Quiz button is clicked
 
 //Function fpr counting down when a new question is shown
@@ -17,12 +15,11 @@
 //--You must also be able to clear the scoreboard
 
 var quizArea = document.getElementById('quiz');
-var submitBtn = document.getElementById('#submitBtn');
+var submitBtn = document.getElementById('submitBtn');
 var showAnswer = document.getElementById('showAnswer');
-var startQuizBtn = document.querySelector('startQuiz');
+var startQuizBtn = document.getElementById('startQuiz');
 var timerHTML = document.querySelector('timercount')
-//Default state for start quiz button
-var isStartQuizBtn = 'hidden';
+
 
 var questions = [
   {
@@ -93,8 +90,10 @@ function showQuestion(){
   console.log(showChoices)
 
   console.log(document.body.children);
+  //Hide start quiz button
+  startQuizBtn.style.visibility = 'hidden';
   //Show submit answer button
-  startQuizBtn.style.visibility = 'visible';
+  submitBtn.style.visibility = 'visible';
   
   for (i=0 ; i<questionCount; i++) {
     showChoices.push(questions[i].choices);

@@ -1,9 +1,18 @@
+<!--Create multiple pages for each question, including starting and end states of the quiz-->
+    <!--Title for each question-->
+        <!--List item for each answer choice with curved borders-->
+      <!--Question will be placed in a container and centered in the screen-->
+            <!--Reaction of correct or false with each click of an answer-->
+        <!--Place a timer located in the corner-->
+              <!--Button for 'View high scores' in the top-left hand corner-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/style.css">
   <title>Document</title>
 </head>
 
@@ -15,18 +24,12 @@
     </button>
     <h2 class="timerCount" style="display:inline-flex; position: fixed; right: 20px; margin: 10"></h2>
   </header>
-  <!--Create multiple pages for each question, including starting and end states of the quiz-->
-    <!--Title for each question-->
-        <!--List item for each answer choice with curved borders-->
-      <!--Question will be placed in a container and centered in the screen-->
-            <!--Reaction of correct or false with each click of an answer-->
-        <!--Place a timer located in the corner-->
-              <!--Button for 'View high scores' in the top-left hand corner-->
+  
   <section class="container">
     <div id="quiz"></div>
 
     <!--Submit answer button will stay hidden until needed-->
-    <span><button class="submitBtn" style='visibility:hidden'>Submit Answer</button></span>
+    <button id="submitBtn" style='visibility:hidden'>Submit Answer</button>
 
     <button id="startQuiz">Start Quiz</button>
     <div class="showAnswer"></div>
