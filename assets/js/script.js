@@ -14,11 +14,13 @@
 //--This data for scores will be stored in local memory
 //--You must also be able to clear the scoreboard
 
+var questionArea = document.getElementById('question');
 var quizArea = document.getElementById('quiz');
 var submitBtn = document.getElementById('submitBtn');
 var showAnswer = document.getElementById('showAnswer');
 var startQuizBtn = document.getElementById('startQuiz');
-var timerHTML = document.querySelector('timercount')
+var timerHTML = document.querySelector('.timerCount')
+var questionIndex = 0;
 
 
 var questions = [
@@ -82,12 +84,12 @@ function showQuestion(){
 
   //stores check against answer that is picked
   var questionCount = 4;
-  //This is a 'for each' getter statement 
-  questions.forEach((element,choices) =>
-    //console.log(element.choices)
-    showChoices.push(choices[''])
-  );
+ 
+  var showChoices = questions[questionIndex].choices
+  var currentQuestion = questions[questionIndex].question
+  
   console.log(showChoices)
+  console.log(currentQuestion)
 
   console.log(document.body.children);
   //Hide start quiz button
@@ -95,25 +97,24 @@ function showQuestion(){
   //Show submit answer button
   submitBtn.style.visibility = 'visible';
   
-  for (i=0 ; i<questionCount; i++) {
-    showChoices.push(questions[i].choices);
-      console.log(showChoices);
-      //answer.push('<label><input type='radio'name='question+i''questions[i].choices[i]'</label>');
+  for (var key in showChoices) {
+    
+      answer.push("<label>"+showChoices[key]+"</label><input type='radio' name='question' value='"+showChoices[key]+"'>");
       //if the submit button hasnt been clicked, end for loop
-      if (!showAnswer){
+  /*      if (!showAnswer){
         return;
       }
-
+*/
   };
-  console.log(show);
+  console.log(answer);
 
   //timer function counts down from 100 seconds and decrements when an incorrect answer is given
     function timer(){
-      
+      timerHTML.textContent = timerCount;
       //Time count is stored in this variable
       var timeInterval = setInterval(function(){
         timerCount--;
-        
+        timerHTML.textContent = timerCount;
         if (timerCount === 0){
           //Clears timer count 
           clearInterval(timeInterval)
@@ -125,12 +126,13 @@ function showQuestion(){
   //Then call to start countdown
   timer();
   //Returns text to the quiz area after quiz is built
-  quizArea.innerText = answer;
+  questionArea.innerHTML = currentQuestion;
+  quizArea.innerHTML = answer.join(' \n');
 
 };
 
 //An alert to the user that their answer is correct or incorrect
-function showAnswer(event) {
+function showAnswer() {
   if(correctAnswer.check){
     alert("Correct")
   }
@@ -141,3 +143,5 @@ function showAnswer(event) {
 //submitBtn.addEventListener('click', showAnswer);
 //When user clicks start quiz, 'submit answer' button is unhidden, timer starts and question is built 
 startQuizBtn.addEventListener('click', showQuestion);
+//Event listener for submitting your answer to be checked
+submitBtn.addEventListener('click', showAnswer);
